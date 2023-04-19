@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="theme-color" content="#5a1532">
+    <meta name="msapplication-navbutton-color" content="#5a1532">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#5a1532">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="Assets/Favicon/Apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="Assets/Favicon/Favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="Assets/Favicon/Favicon-16x16.png" sizes="16x16">
+    <link rel="shortcut icon" href="Assets/Favicon/Favicon.ico" type="image/x-icon" />
+
+    <title>Rustyness - UI Designer que ama desafios e resolução de problemas.</title>
+    <meta name="description" content="UI Designer que ama desafios, resolução de problemas, que produz cerveja e que não dispensa uma boa partida de Magic.">
+    <meta name="keywords" content="UI Designer, User Interface Designer, Designer, CSS, HTML, Front-end, Prototipação, Wireframing, Desenvolvimento de Sites">    
+    <link rel="canonical" href="http://rustyness.com.br/">
+
+    <meta property="og:title" content="Rustyness - UI Designer que ama desafios e resolução de problemas">
+    <meta property="og:description" content="UI Designer que ama desafios, resolução de problemas, que produz cerveja e que não dispensa uma boa partida de Magic.">
+    <meta property="og:image" itemprop="image" content="http://rustyness.com.br/Assets/Thumbnail.png">
+    <meta property="og:url" content="http://rustyness.com.br/">
+    <meta property="og:type" content="website">
+    <meta itemprop="name" content="Rustyness - UI Designer que ama desafios e resolução de problemas"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:site_name" content="Rustyness">
+    <meta name="twitter:image:alt" content="UI Designer que ama desafios, resolução de problemas, que produz cerveja e que não dispensa uma boa partida de Magic."> 
+    <meta property="fb:app_id" content="your_app_id" />
+    <meta name="twitter:site" content="@TheRustyness">
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="Styles.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/react@16.12/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@16.12/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prop-types@15.7.2/prop-types.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-apexcharts@1.3.6/dist/react-apexcharts.iife.min.js"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154542152-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-154542152-1');
+    </script>
+</head>
+<body class="l-body">
+    <section class="l-body__content" style="margin-top: 10vh">
+        <article class="l-body__graphic">
+            <h1>Mapa de Habilidades</h1>
+            <h2>Designer de Produto Vs. Habilidades Vida Pessoal</h2>
+            <section id="ProductDesigner"></section>
+            <section id="PersonalLife"></section>
+          
+            <script type="text/babel">
+                class ApexChart extends React.Component {
+                  constructor(props) {
+                    super(props);
+          
+                    this.state = {
+                    
+                      series: [{
+                        name: 'Series 1',
+                        data: [5, 5, 2, 3, 2, 3],
+                      }],
+                      options: {
+                        chart: {
+                          toolbar: false,
+                          height: 400,
+                          type: 'radar',
+                        },
+                        dataLabels: {
+                          enabled: true
+                        },
+                        plotOptions: {
+                          radar: {
+                            size: 140,
+                            polygons: {
+                              strokeColors: '#e9e9e9',
+                              fill: {
+                                colors: ['#fff2f2', '#fff']
+                              }
+                            }
+                          }
+                        },
+                        title: {
+                          text: ''
+                        },
+                        colors: ['#16A66E'],
+                        markers: {
+                          size: 4,
+                          colors: ['#fff'],
+                          strokeColor: '#16A66E',
+                          strokeWidth: 2,
+                        },
+                        tooltip: {
+                          enabled: false,
+                          y: {
+                            formatter: function(val) {
+                              return val
+                            }
+                          }
+                        },
+                        xaxis: {
+                          categories: ['Technical', 'User Experience', 'User Psychology', 'Data', 'Project Manager', 'Wackness'],
+                          labels: {
+                            show: true,
+                            style: {
+                                colors: ['#fbd7d6', '#fbd7d6', '#fbd7d6', '#fbd7d6', '#fbd7d6', '#fbd7d6', '#fbd7d6', '#fbd7d6', '#fbd7d6'],
+                            },
+
+                        },
+                        },
+                        yaxis: {
+                          tickAmount: 1,
+                          labels: {
+                            formatter: function(val, i) {
+                              if (i % 0 === 0) {
+                                return val
+                              } else {
+                                return ''
+                              }
+                            }
+                          }
+                        }
+                      },
+                    
+                    
+                    };
+                  }
+          
+                
+          
+                  render() {
+                    return (
+                      <div>
+                        <div id="chartPD">
+                          <ReactApexChart options={this.state.options} series={this.state.series} type="radar" height={350} />
+                        </div>
+                        <div id="html-dist"></div>
+                      </div>
+                    );
+                  }
+                }
+          
+                const domContainer = document.querySelector('#ProductDesigner');
+                ReactDOM.render(React.createElement(ApexChart), domContainer);
+            </script>
+          
+            <script type="text/babel">
+            class ApexChart extends React.Component {
+              constructor(props) {
+                super(props);
+          
+                this.state = {
+                
+                  series: [{
+                    name: 'Series 1',
+                    data: [70, 40, 10, 80, 60, 70, 80, 40, 60],
+                  }],
+                  options: {
+                    chart: {
+                      toolbar: false,
+                      height: 400,
+                      type: 'radar',
+                    },
+                    dataLabels: {
+                      enabled: true
+                    },
+                    plotOptions: {
+                      radar: {
+                        size: 140,
+                        polygons: {
+                          strokeColors: '#e9e9e9',
+                          fill: {
+                            colors: ['#fbd7d6', '#fff']
+                          }
+                        }
+                      }
+                    },
+                    title: {
+                      text: ''
+                    },
+                    colors: ['#1E8FA6'],
+                    markers: {
+                      size: 4,
+                      colors: ['#fff'],
+                      strokeColor: '#1E8FA6',
+                      strokeWidth: 2,
+                    },
+                    tooltip: {
+                      enabled: false,
+                      y: {
+                        formatter: function(val) {
+                          return val
+                        }
+                      }
+                    },
+                    xaxis: {
+                      categories: ['Fotografia', 'Guitarra', 'Piano', 'Natação', 'Cripto', 'Investimentos', 'Design', 'História da Arte', 'Inglês' ],
+
+                      labels: {
+                        show: true,
+                        style: {
+                            colors: ['#fbd7d6', '#fbd7d6', '#fbd7d6', '#fbd7d6', '#fbd7d6', '#fbd7d6', '#fbd7d6', '#fbd7d6', '#fbd7d6'],
+                        },
+
+                    },
+
+                    },
+                    yaxis: {
+                      tickAmount: 9,
+                      labels: {
+                        formatter: function(val, i) {
+                          if (i % 0 === 0) {
+                            return val
+                          } else {
+                            return ''
+                          }
+                        }
+                      }
+                    }
+                  },
+                
+                
+                };
+              }
+          
+              render() {
+                return (
+                  <div>
+                    <div id="chartPL">
+                      <ReactApexChart options={this.state.options} series={this.state.series} type="radar" height={350} />
+                    </div>
+                    <div id="html-dist"></div>
+                  </div>
+                );
+              }
+            }
+          
+            const domContainer = document.querySelector('#PersonalLife');
+            ReactDOM.render(React.createElement(ApexChart), domContainer);
+            </script>
+        </article>
+    </section>
+    <script src="Scripts.js"></script>
+</body>
+</html>
